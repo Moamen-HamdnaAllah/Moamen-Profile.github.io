@@ -25,15 +25,9 @@
         }
 
         @keyframes gradientShift {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         body::before {
@@ -41,20 +35,15 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.025) 0%, transparent 50%);
+            background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.025) 0%, transparent 50%);
             animation: pulseGlow 8s ease-in-out infinite;
         }
 
         @keyframes pulseGlow {
-            0%, 100% {
-                opacity: 0.5;
-            }
-            50% {
-                opacity: 1;
-            }
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
         }
 
         .container {
@@ -62,14 +51,7 @@
             color: #fff;
             position: relative;
             z-index: 1;
-        }
-
-        h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            letter-spacing: 2px;
-            animation: fadeInDown 1s ease;
+            padding: 2rem;
         }
 
         .subtitle {
@@ -80,6 +62,23 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             animation: fadeInDown 1s ease 0.2s both;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .role {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            letter-spacing: 1px;
+            animation: fadeInDown 1s ease 0.4s both;
         }
 
         .links {
@@ -157,15 +156,15 @@
         }
 
         .link-item:nth-child(1) {
-            animation: slideInLeft 0.8s ease 0.3s both;
-        }
-
-        .link-item:nth-child(2) {
             animation: slideInLeft 0.8s ease 0.5s both;
         }
 
-        .link-item:nth-child(3) {
+        .link-item:nth-child(2) {
             animation: slideInLeft 0.8s ease 0.7s both;
+        }
+
+        .link-item:nth-child(3) {
+            animation: slideInLeft 0.8s ease 0.9s both;
         }
 
         @keyframes slideInLeft {
@@ -179,7 +178,6 @@
             }
         }
 
-        /* Background particles effect */
         .particle {
             position: absolute;
             background: rgba(255, 255, 255, 0.1);
@@ -201,6 +199,15 @@
             h1 {
                 font-size: 2.5rem;
             }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .role {
+                font-size: 1rem;
+            }
+            
             .link-item {
                 min-width: 320px;
                 font-size: 1rem;
@@ -213,7 +220,7 @@
     <div class="container">
         <p class="subtitle">Contact Me</p>
         <h1>Moamen HamdnaAllah</h1>
-        
+        <p class="role">Developer & DevOps Engineer</p>
         <div class="links">
             <a href="https://github.com/Moamen-HamdnaAllah" class="link-item" target="_blank">
                 <svg class="icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
@@ -221,14 +228,12 @@
                 </svg>
                 <span class="link-text">github.com/Moamen-HamdnaAllah</span>
             </a>
-            
             <a href="https://linkedin.com/in/moamen-hamdna-05a5482a6" class="link-item" target="_blank">
                 <svg class="icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
                 <span class="link-text">linkedin.com/in/moamen-hamdna-05a5482a6</span>
             </a>
-            
             <a href="mailto:momenhamdna6@gmail.com" class="link-item">
                 <svg class="icon" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
                     <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L12 9.548l8.073-6.055C21.69 2.28 24 3.434 24 5.457z"/>
@@ -239,7 +244,6 @@
     </div>
 
     <script>
-        // Create floating particles
         function createParticles() {
             const particlesContainer = document.body;
             for (let i = 0; i < 30; i++) {
@@ -254,7 +258,6 @@
                 particlesContainer.appendChild(particle);
             }
         }
-
         createParticles();
     </script>
 </body>
