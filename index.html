@@ -20,8 +20,9 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            overflow: hidden;
+            overflow-x: hidden;
             position: relative;
+            padding: 1rem;
         }
 
         @keyframes gradientShift {
@@ -51,60 +52,65 @@
             color: #fff;
             position: relative;
             z-index: 1;
-            padding: 2rem;
+            padding: 2rem 1rem;
+            width: 100%;
+            max-width: 600px;
         }
 
         .subtitle {
-            font-size: 1.5rem;
+            font-size: clamp(1rem, 3vw, 1.5rem);
             font-weight: 300;
             color: rgba(255, 255, 255, 0.7);
             margin-bottom: 1rem;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             animation: fadeInDown 1s ease 0.2s both;
         }
 
         h1 {
-            font-size: 4rem;
+            font-size: clamp(2rem, 6vw, 4rem);
             font-weight: 700;
             margin-bottom: 1rem;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             animation: fadeInDown 1s ease;
+            word-break: break-word;
         }
 
         .role {
-            font-size: 1.3rem;
+            font-size: clamp(0.9rem, 2.5vw, 1.3rem);
             font-weight: 400;
             color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 3rem;
-            letter-spacing: 1px;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.5px;
             animation: fadeInDown 1s ease 0.4s both;
         }
 
         .links {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1rem;
             align-items: center;
+            width: 100%;
         }
 
         .link-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1rem 2rem;
+            gap: 1.2rem;
+            padding: 1.2rem 2rem;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             text-decoration: none;
             color: #fff;
-            font-size: 1.2rem;
+            font-size: clamp(0.95rem, 2vw, 1.2rem);
             transition: all 0.4s ease;
             border: 2px solid transparent;
             position: relative;
             overflow: hidden;
-            min-width: 450px;
+            width: 100%;
+            max-width: 450px;
+            justify-content: space-between;
             flex-direction: row-reverse;
-            justify-content: flex-end;
         }
 
         .link-item::before {
@@ -123,16 +129,17 @@
         }
 
         .link-item:hover {
-            transform: translateY(-5px) scale(1.05);
+            transform: translateY(-5px) scale(1.02);
             background: rgba(255, 255, 255, 0.1);
             border-color: rgba(255, 255, 255, 0.3);
             box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
         }
 
         .icon {
-            width: 32px;
-            height: 32px;
+            width: clamp(28px, 5vw, 36px);
+            height: clamp(28px, 5vw, 36px);
             transition: transform 0.3s ease;
+            flex-shrink: 0;
         }
 
         .link-item:hover .icon {
@@ -142,6 +149,9 @@
         .link-text {
             text-align: right;
             font-weight: 500;
+            font-size: clamp(0.85rem, 2vw, 1.1rem);
+            letter-spacing: 0.3px;
+            word-break: break-all;
         }
 
         @keyframes fadeInDown {
@@ -183,6 +193,7 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             animation: float 6s infinite ease-in-out;
+            pointer-events: none;
         }
 
         @keyframes float {
@@ -201,12 +212,13 @@
             left: 0;
             right: 0;
             text-align: center;
-            padding: 1.5rem;
+            padding: 1rem;
             color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
-            letter-spacing: 1px;
+            font-size: clamp(0.7rem, 1.8vw, 0.9rem);
+            letter-spacing: 0.5px;
             background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
             animation: fadeInUp 1s ease 1.2s both;
+            z-index: 10;
         }
 
         @keyframes fadeInUp {
@@ -220,28 +232,121 @@
             }
         }
 
+        /* Mobile Optimizations */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
+            body {
+                padding: 0.5rem;
             }
-            
+
+            .container {
+                padding: 1.5rem 0.5rem;
+            }
+
             .subtitle {
-                font-size: 1.2rem;
+                letter-spacing: 1px;
+                margin-bottom: 0.8rem;
             }
-            
+
+            h1 {
+                margin-bottom: 0.8rem;
+            }
+
             .role {
+                margin-bottom: 2rem;
+            }
+
+            .links {
+                gap: 0.8rem;
+            }
+
+            .link-item {
+                padding: 1rem 1.5rem;
+                gap: 1rem;
+                border-radius: 10px;
+            }
+
+            .link-text {
                 font-size: 1rem;
             }
-            
-            .link-item {
-                min-width: 320px;
-                font-size: 1rem;
-                padding: 0.8rem 1.5rem;
+
+            .icon {
+                width: 28px;
+                height: 28px;
             }
 
             .footer {
-                font-size: 0.75rem;
-                padding: 1rem;
+                padding: 0.8rem 0.5rem;
+            }
+
+            /* تحسين التفاعل للموبايل */
+            .link-item:active {
+                transform: scale(0.98);
+                background: rgba(255, 255, 255, 0.15);
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem 0.3rem;
+            }
+
+            .links {
+                gap: 0.7rem;
+            }
+
+            .link-item {
+                padding: 0.9rem 1.2rem;
+                font-size: 0.95rem;
+                gap: 0.9rem;
+            }
+
+            .subtitle {
+                letter-spacing: 0.5px;
+            }
+
+            .icon {
+                width: 26px;
+                height: 26px;
+            }
+        }
+
+        /* Landscape mobile */
+        @media (max-height: 600px) and (orientation: landscape) {
+            body {
+                padding: 0.5rem;
+            }
+
+            .container {
+                padding: 1rem 0.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .role {
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .links {
+                gap: 0.6rem;
+            }
+
+            .link-item {
+                padding: 0.7rem 1rem;
+            }
+
+            .footer {
+                padding: 0.5rem;
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -276,7 +381,10 @@
     <script>
         function createParticles() {
             const particlesContainer = document.body;
-            for (let i = 0; i < 30; i++) {
+            const isMobile = window.innerWidth <= 768;
+            const particleCount = isMobile ? 15 : 30;
+            
+            for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
                 particle.style.width = Math.random() * 5 + 2 + 'px';
@@ -289,6 +397,16 @@
             }
         }
         createParticles();
+
+        // Recreate particles on resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                document.querySelectorAll('.particle').forEach(p => p.remove());
+                createParticles();
+            }, 250);
+        });
     </script>
 
     <div class="footer">
